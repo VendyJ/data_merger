@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Merger Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: #2c3e50; }
+        h2 { margin-top: 40px; }
+        table { border-collapse: collapse; width: 100%; margin-bottom: 30px; }
+        th, td { border: 1px solid #ddd; padding: 8px; }
+        th { background-color: #f4f4f4; }
+        a { color: #3498db; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <h1>Data Merger Dashboard</h1>
+
+    <h2>Top GitHub Repozitáře</h2>
+    <table>
+        <tr><th>Název</th><th>Stars</th><th>Odkaz</th></tr>
+        {% for r in repos %}
+        <tr>
+            <td>{{ r.name }}</td>
+            <td>{{ r.stars }}</td>
+            <td><a href="{{ r.url }}" target="_blank">Otevřít</a></td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="3">Žádné repozitáře</td></tr>
+        {% endfor %}
+    </table>
+
+    <h2>Top StackOverflow Otázky</h2>
+    <table>
+        <tr><th>Titulek</th><th>Hlasy</th><th>Odkaz</th></tr>
+        {% for q in questions %}
+        <tr>
+            <td>{{ q.title }}</td>
+            <td>{{ q.score }}</td>
+            <td><a href="{{ q.link }}" target="_blank">Otevřít</a></td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="3">Žádné otázky</td></tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
