@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Nová žádost</title>
+</head>
+<body>
+    <h1>Vytvořit novou žádost</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Odeslat</button>
+    </form>
+
+    <p><a href="/microfund/">Zpět na přehled</a></p>
+</body>
+</html>

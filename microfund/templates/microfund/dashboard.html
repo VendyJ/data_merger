@@ -28,6 +28,8 @@
 <body>
     <h1>Žádosti o podporu</h1>
 
+    <h2><a href="{% url 'add_request' %}">+ Přidat novou žádost</a></h2>
+
     {% for req in requests %}
         <div class="request">
             <h2>{{ req.name }}</h2>
