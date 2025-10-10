@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Microfund - Žádosti o podporu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333
+        }
+        .request {
+            background: white;
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .amount {
+            font-weight: bold;
+            color: #0066cc
+        }
+    </style>
+</head>
+<body>
+    <h1>Žádosti o podporu</h1>
+
+    {% for req in requests %}
+        <div class="request">
+            <h2>{{ req.name }}</h2>
+            <p>{{ req.description }}</p>
+            <p>Cílová částka: <span class="amount">{{ req.cash_amount }} Kč</span></p>
+            <p>Vybráno: <span class="amount">{{ req.donor_amount }} Kč</span></p>
+        </div>
+    {% empty %}
+        <p>Zatím tu nejsou žádné žádosti.</p>
+    {% endfor %}
+</body>
+</html>
