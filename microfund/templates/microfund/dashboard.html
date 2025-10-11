@@ -36,6 +36,7 @@
             <p>{{ req.description }}</p>
             <p>Cílová částka: <span class="amount">{{ req.cash_amount }} Kč</span></p>
             <p>Vybráno: <span class="amount">{{ req.donor_amount }} Kč</span></p>
+            <a href="{% url 'donate' req.id %}">Přispět</a>
         </div>
     {% empty %}
         <p>Zatím tu nejsou žádné žádosti.</p>

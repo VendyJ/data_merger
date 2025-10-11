@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Přispět na {{ req.name }}</title>
+</head>
+<body>
+    <h1>Přispět na: {{ req.name }}</h1>
+    <p>{{ req.description }}</p>
+    <p>Cílová částka: {{ req.cash_amount }} Kč</p>
+    <p>Vybráno: {{ req.donor_amount }} Kč</p>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Přispět</button>
+        <button type="button">Zaplatit přes GoPay</button>
+    </form>
+
+    <p><a href="/microfund/">Zpět na přehled</a></p>
+</body>
+</html>
